@@ -5,48 +5,115 @@
     <style>
         body {
             display: flex;
-            justify-content: center;
-            align-items: center;
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            text-align: center;
-            /* background-color: rgb(203, 144, 225); */ /* light purple solid background */
+            text-align: left;
             background: linear-gradient(to bottom, #00008b, #87ceeb); /* Dark blue to light blue gradient */
         }
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: block;
+            width: 100%;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
         .content {
-            max-width: 600px;
+            flex-grow: 1;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
         }
         img {
             max-width: 40%;
             height: auto;
+            display: block;
+            margin: auto;
         }
         .icons {
             margin-top: 20px;
+            text-align: center;
         }
         .icons img {
             width: 60px; /* Size of the icons */
             margin: 0 10px; /* Space between icons */
             vertical-align: middle;
         }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <div class="content">
-        <img src="Profile Picture.jpg" alt="My Picture">
-        <h1>Welcome to My Personal Website</h1>
-        <p>My name is Aria Koul! I am a 2024 graduate from UCSC where I majored in Physics and minored in Statistics. </p>
-        <div class="icons">
-            <a href="https://www.github.com/ariakoul" target="_blank">
-                <img src="github_symbol.png" alt="GitHub">
-            </a>
-            <a href="https://www.linkedin.com/in/ariakoul" target="_blank">
-                <img src="linkedin_icon.jpg" alt="LinkedIn">
-            </a>
-        </div>
-        <p>
-            Contact me: <a href="ariakoul@gmail.com">ariakoul@gmail.com</a>
-        </p>
+    <div class="sidebar">
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#about" onclick="showSection('about')">About Me</a>
+        <a href="#achievements" onclick="showSection('achievements')">Achievements</a>
+        <a href="#portfolio" onclick="showSection('portfolio')">Portfolio</a>
     </div>
+    <div class="content">
+        <div id="home" class="section active">
+            <img src="Profile Picture.jpg" alt="My Picture">
+            <h1>Welcome to My Personal Website</h1>
+            <p>My name is Aria Koul! I am a 2024 graduate from UCSC where I majored in Physics and minored in Statistics. </p>
+            <div class="icons">
+                <a href="https://www.github.com/ariakoul" target="_blank">
+                    <img src="github_symbol.png" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/ariakoul" target="_blank">
+                    <img src="linkedin_icon.jpg" alt="LinkedIn">
+                </a>
+            </div>
+            <p>Contact me: <a href="mailto:ariakoul@gmail.com">ariakoul@gmail.com</a></p>
+        </div>
+        <div id="about" class="section">
+            <h2>About Me</h2>
+            <p>I'm Aria Koul, a Physics major with a minor in Statistics from UCSC. I have a passion for exploring the mysteries of the universe and applying statistical methods to solve complex problems.</p>
+            <p>My interests include [your interests]. I have experience in [relevant experience] and enjoy working on [types of projects].</p>
+        </div>
+        <div id="achievements" class="section">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Graduated with honors from UCSC</li>
+                <li>Recipient of [specific award]</li>
+                <li>Published a paper on [topic] in [journal]</li>
+                <li>Completed [specific project or internship]</li>
+            </ul>
+        </div>
+        <div id="portfolio" class="section">
+            <h2>Portfolio</h2>
+            <p>Here are some of the projects I've worked on:</p>
+            <ul>
+                <li><a href="link-to-project1" target="_blank">Project 1</a> - Brief description of Project 1.</li>
+                <li><a href="link-to-project2" target="_blank">Project 2</a> - Brief description of Project 2.</li>
+                <li><a href="link-to-project3" target="_blank">Project 3</a> - Brief description of Project 3.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
 </body>
 </html>
