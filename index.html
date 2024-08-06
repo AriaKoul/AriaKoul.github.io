@@ -71,7 +71,7 @@
             margin: 20px 0;
         }
         .resume {
-            width: 400%;
+            width: 100%;
             max-width: 1000px;
             height: 500px; 
             border: none; 
@@ -142,11 +142,11 @@
             </ul>
         </div>
         <div id="resume" class="section">
-    <h2>Resume</h2>
-    <div class="resume-container">
-        <iframe src="Aria Koul - Resume.pdf" class="resume"></iframe>
-    </div>
-</div>
+            <h2>Resume</h2>
+            <div class="resume-container">
+                <iframe src="Aria Koul - Resume.pdf" class="resume"></iframe>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -158,13 +158,13 @@
             document.getElementById(sectionId).classList.add('active');
         }
 
-        // New script for adjusting iframe height
-        document.addEventListener("DOMContentLoaded", function() {
-            var iframe = document.querySelector('.resume');
-            iframe.onload = function() {
-                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-            };
-        });
+        // // New script for adjusting iframe height
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     var iframe = document.querySelector('.resume');
+        //     iframe.onload = function() {
+        //         iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        //     };
+        // });
     </script>
 </body>
 </html>
