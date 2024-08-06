@@ -71,14 +71,10 @@
             margin: 20px 0;
         }
         .resume {
-            /* width: 400%;
+            width: 400%;
             max-width: 1000px;
             height: 500px; 
-            border: none; */
-            width: 90%; /* Set to a wide width, like a typical PDF view */
-            height: 1200px; /* Adjust height as needed */
-            border: none;
-            overflow: hidden; /* Prevent scroll bars from appearing in the iframe */
+            border: none; 
         }
         h2 {
             font-size: 40px; 
@@ -161,6 +157,14 @@
             });
             document.getElementById(sectionId).classList.add('active');
         }
+
+        // New script for adjusting iframe height
+        document.addEventListener("DOMContentLoaded", function() {
+            var iframe = document.querySelector('.resume');
+            iframe.onload = function() {
+                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+            };
+        });
     </script>
 </body>
 </html>
