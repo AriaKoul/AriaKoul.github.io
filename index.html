@@ -40,7 +40,7 @@
         .content {
             flex-grow: 1;
             padding: 80px 20px 20px; /* Add top padding to avoid content being hidden under the navbar */
-            max-width: 1200px;
+            max-width: 800px;
             margin: auto;
             text-align: center;
             background: linear-gradient(to bottom, #00008b, #87ceeb); /* Ensure content background also has the gradient */
@@ -95,15 +95,14 @@
         }
         .portfolio-box-container {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: nowrap;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
         .portfolio-box {
             flex: 1;
             margin: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            max-width: 30%;
+            min-width: 250px;
         }
     </style>
 </head>
