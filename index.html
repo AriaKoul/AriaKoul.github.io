@@ -3,15 +3,17 @@
 <head>
     <title>Aria Koul</title>
     <style>
-        html, body {
+        html {
             height: 100%;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #00008b, #87ceeb); /* Dark blue to light blue gradient */
         }
         body {
+            height: 100%;
+            margin: 0;
             display: flex;
             flex-direction: column;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #00008b, #87ceeb); /* Dark blue to light blue gradient */
         }
         .navbar {
             width: 100%;
@@ -41,6 +43,7 @@
             max-width: 800px;
             margin: auto;
             text-align: center;
+            background: linear-gradient(to bottom, #00008b, #87ceeb); /* Ensure content background also has the gradient */
         }
         img {
             max-width: 35%;
@@ -84,11 +87,20 @@
         h3 {
             font-size: 30px;
         }
+        .box-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
         .box {
             border: 2px solid #111010; /* Dark border */
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 8px; /* Rounded corners */
+            flex: 1;
+            margin: 10px;
+            max-width: 30%;
+            min-width: 250px;
         }
     </style>
 </head>
@@ -137,20 +149,19 @@
         <div id="portfolio" class="section">
             <h2>Portfolio</h2>
             <p>Here are some of the projects I've worked on:</p>
-            <div class="box">
-                <h3><a href="https://github.com/AriaKoul/stock-market-analysis" target="_blank">Stock Market Analysis</a></h3>
-                <p>In this project, I created a tool that compares different buying/selling/holding strategies for the U.S. stock</p>
-                <p>based on how the stock changes overnight (outside trading hours).</p>
-            </div>
-            <div class="box">
-                <h3><a href="https://github.com/AriaKoul/cosmic-rays" target="_blank">Cosmic Rays Classification</a></h3>
-                <p>In this project, I created a machine learning algorithm that can classify the primary particle in a cosmic ray,</p>
-                <p>given various properties about the ray.</p>
-            </div>
-            <div class="box">
-                <h3><a href="https://github.com/AriaKoul/astr_112" target="_blank">Using the Gaia Catalogs</a></h3>
-                <p>In this project, I created a program that generates Color Magnitude Diagrams for various stars based on</p>
-                <p>data taken from the Gaia Catalog.</p>
+            <div class="box-container">
+                <div class="box">
+                    <h3><a href="https://github.com/AriaKoul/stock-market-analysis" target="_blank">Stock Market Analysis</a></h3>
+                    <p>In this project, I created a tool that compares different buying/selling/holding strategies for the U.S. stock based on how the stock changes overnight (outside trading hours).</p>
+                </div>
+                <div class="box">
+                    <h3><a href="https://github.com/AriaKoul/cosmic-rays" target="_blank">Cosmic Rays Classification</a></h3>
+                    <p>In this project, I created a machine learning algorithm that can classify the primary particle in a cosmic ray, given various properties about the ray.</p>
+                </div>
+                <div class="box">
+                    <h3><a href="https://github.com/AriaKoul/astr_112" target="_blank">Using the Gaia Catalogs</a></h3>
+                    <p>In this project, I created a program that generates Color Magnitude Diagrams for various stars based on data taken from the Gaia Catalog.</p>
+                </div>
             </div>
         </div>
         <div id="resume" class="section">
