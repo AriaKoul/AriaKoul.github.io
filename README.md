@@ -1,2 +1,3 @@
-# ariakoul.github.io
-In this repository, I have the code I used to create my personal website. 
+# Aria Kou
+In this repository, I include the code and attachments I used to create my personal website. 
+
