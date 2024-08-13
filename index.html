@@ -3,7 +3,11 @@
 <head>
     <title>Aria Koul</title>
     <style>
-        html, body {
+        html {
+            height: 100%;
+            margin: 0;
+        }
+        body {
             height: 100%;
             margin: 0;
             display: flex;
@@ -36,8 +40,7 @@
         .content {
             flex-grow: 1;
             padding: 80px 20px 20px; /* Add top padding to avoid content being hidden under the navbar */
-            max-width: 1200px; /* Increase max-width for content */
-            width: 100%; /* Ensure content takes full width */
+            max-width: 1000px;
             margin: auto;
             text-align: center;
             background: transparent; /* Ensure content background is transparent */
@@ -71,11 +74,11 @@
             display: flex;
             justify-content: center;
             margin: 20px 0;
-            height: 100%; /* Allow the height to expand with content */
         }
         .resume {
-            width: 100%; /* Make the resume iframe full-width */
-            height: 1000px; /* Increase the height */
+            width: 100%;
+            max-width: 1000px;
+            height: 500px; 
             border: none; 
         }
         h2 {
