@@ -13,7 +13,7 @@
             display: flex;
             flex-direction: column;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #00008b, #87ceeb 80%); /* Dark blue to light blue gradient */
+            background: linear-gradient(to bottom, #00008b, #87ceeb); /* Dark blue to light blue gradient */
         }
         .navbar {
             width: 100%;
@@ -40,10 +40,10 @@
         .content {
             flex-grow: 1;
             padding: 80px 20px 20px; /* Add top padding to avoid content being hidden under the navbar */
-            max-width: 800px;
+            max-width: 1000px;
             margin: auto;
             text-align: center;
-            background: linear-gradient(to bottom, #00008b, #87ceeb 80%); /* Ensure content background also has the gradient */
+            background: transparent; /* Ensure content background is transparent */
         }
         img {
             max-width: 35%;
@@ -92,12 +92,13 @@
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 8px; /* Rounded corners */
-            background-color: white; /* Add background color for contrast */
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
         }
         .portfolio-box-container {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
+            gap: 20px; /* Space between the boxes */
         }
         .portfolio-box {
             flex: 1;
