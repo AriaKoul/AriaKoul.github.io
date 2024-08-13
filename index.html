@@ -3,11 +3,7 @@
 <head>
     <title>Aria Koul</title>
     <style>
-        html {
-            height: 100%;
-            margin: 0;
-        }
-        body {
+        html, body {
             height: 100%;
             margin: 0;
             display: flex;
@@ -74,11 +70,11 @@
             display: flex;
             justify-content: center;
             margin: 20px 0;
+            height: 100%; /* Allow the height to expand with content */
         }
         .resume {
-            width: 100%;
-            max-width: 1000px;
-            height: 500px; 
+            width: 90%; /* Make the resume iframe wider */
+            height: 1000px; /* Increase the height */
             border: none; 
         }
         h2 {
