@@ -96,17 +96,17 @@
         }
         .about-box-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             flex-wrap: wrap;
+            gap: 20px; /* Space between the boxes */
         }
-
         .about-box {
-            width: calc(33.33% - 20px);
-            margin-bottom: 20px;
-            background: linear-gradient(to bottom right, #f0f0f0, #ffffff);
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            margin: 10px;
+            max-width: 30%;
+            min-width: 250px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
         }
 
         @media (max-width: 768px) {
