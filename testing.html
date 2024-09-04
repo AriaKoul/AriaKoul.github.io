@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aria Koul</title>
+    <style>
+        html {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #00008b, #87ceeb); /* Dark blue to light blue gradient */
+        }
+        .navbar {
+            width: 100%;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: rgb(253, 250, 250); /* White text color for section titles */
+            padding: 15px;
+            text-align: center;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        .navbar a:hover {
+            background-color: rgba(0, 0, 0, 0.1); /* Slightly darken on hover */
+            border-radius: 5px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 80px 20px 20px; /* Add top padding to avoid content being hidden under the navbar */
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+            background: transparent; /* Ensure content background is transparent */
+        }
+        img {
+            max-width: 35%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+        .icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        .icons a {
+            display: inline-block;
+        }
+        .icons img {
+            width: 120px; /* Size of the icons */
+            height: auto;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .resume-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .resume {
+            width: 100%;
+            max-width: 1000px;
+            height: 500px; 
+            border: none; 
+        }
+        h2 {
+            font-size: 40px; 
+        }
+        h3 {
+            font-size: 30px;
+        }
+        .box {
+            border: 2px solid #111010; /* Dark border */
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px; /* Rounded corners */
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+        }
+        .about-box-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between the boxes */
+        }
+        .about-box {
+            flex: 1;
+            margin: 10px;
+            max-width: 30%;
+            min-width: 250px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+        }
+
+        @media (max-width: 768px) {
+            .about-box {
+                width: 100%;
+            }
+        }
+        .portfolio-box-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px; /* Space between the boxes */
+        }
+        .portfolio-box {
+            flex: 1;
+            margin: 10px;
+            max-width: 30%;
+            min-width: 250px;
+            box-sizing: border-box; /* Ensure padding/margin don't affect the box size */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#about" onclick="showSection('about')">About Me</a>
+        <a href="#portfolio" onclick="showSection('portfolio')">Portfolio</a>
+        <a href="#resume" onclick="showSection('resume')">Resume</a>
+    </div>
+    <div class="content">
+        <div id="home" class="section active">
+            <img src="Profile Picture.jpg" alt="My Picture">
+            <h1>Aria Koul</h1>
+            <p>Hello! I am a 2024 graduate from UCSC where I majored in Physics and minored in Statistics. </p>
+            <div class="icons">
+                <a href="https://www.github.com/ariakoul" target="_blank">
+                    <img src="github_symbol.png" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/ariakoul" target="_blank">
+                    <img src="linkedin_icon.jpg" alt="LinkedIn">
+                </a>
+            </div>
+            <p>Contact me: <a href="mailto:ariakoul@gmail.com">ariakoul@gmail.com</a></p>
+        </div>
+
+        <div id="about" class="section">
+            <h2>About Me</h2>
+            
+            <div class="about-box-container">
+              <div class="box about-box">
+                <h3>Who I Am</h3>
+                <p>I'm Aria Koul, a Physics major with a minor in Statistics from UCSC.</p>
+                <p>My interests include reading fantasy and mystery books, watching baseball and football games, and spending time with friends.</p>
+                <p>I have experience in working with Python and enjoy working on programming projects of all kinds.</p>
+              </div>
+          
+              <div class="box about-box">
+                <h3>Achievements</h3>
+                <p>During my academic career, I achieved the following milestones:</p>
+                <ul>
+                  <li>Graduated with Physics honors from UCSC in 2024</li>
+                  <li>Member of the Phi Beta Kappa Honor Society</li>
+                </ul>
+              </div>
+          
+              <div class="box about-box">
+                <h3>Online Certificates</h3>
+                <ul>
+                  <li><a href="https://github.com/AriaKoul/AriaKoul.github.io/raw/main/Learn%20Java%20Certificate.pdf" target="_blank">Codecademy: Learn Java Certification</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        <div id="portfolio" class="section">
+            <h2>Portfolio</h2>
+            <p>Here are some of the projects I've worked on:</p>
+            <div class="portfolio-box-container">
+                <div class="box portfolio-box">
+                    <h3><a href="https://github.com/AriaKoul/stock-market-analysis" target="_blank">Stock Market Analysis</a></h3>
+                    <p>In this project, I created a tool that compares different buying/selling/holding strategies for the U.S. stock based on how the stock changes overnight (outside trading hours).</p>
+                </div>
+                <div class="box portfolio-box">
+                    <h3><a href="https://github.com/AriaKoul/cosmic-rays" target="_blank">Cosmic Rays Classification</a></h3>
+                    <p>In this project, I created a machine learning algorithm that can classify the primary particle in a cosmic ray, given various properties about the ray.</p>
+                </div>
+                <div class="box portfolio-box">
+                    <h3><a href="https://github.com/AriaKoul/astr_112" target="_blank">Using the Gaia Catalogs</a></h3>
+                    <p>In this project, I created a program that generates Color Magnitude Diagrams for various stars based on data taken from the Gaia Catalog.</p>
+                </div>
+            </div>
+        </div>
+        <div id="resume" class="section">
+            <h2>Resume</h2>
+            <div class="resume-container">
+                <iframe src="Aria Koul - Resume.pdf" class="resume"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
