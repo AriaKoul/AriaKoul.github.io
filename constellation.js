@@ -2,7 +2,7 @@ const canvas = document.getElementById('constellation-bg');
 const ctx = canvas.getContext('2d');
 
 let width, height, stars;
-const numStars = 100;
+const numStars = 150; // Increased number of stars
 
 function init() {
     resizeCanvas();
@@ -21,7 +21,7 @@ function createStars() {
         stars.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            radius: Math.random() * 1.5,
+            radius: Math.random() * 2 + 0.5, // Slightly larger stars
             alpha: Math.random(),
             speed: Math.random() * 0.05
         });
@@ -30,7 +30,7 @@ function createStars() {
 
 function drawStars() {
     ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = '#0a0a2a';
+    ctx.fillStyle = '#1a2a4a'; // Brighter background color
     ctx.fillRect(0, 0, width, height);
     
     stars.forEach(star => {
