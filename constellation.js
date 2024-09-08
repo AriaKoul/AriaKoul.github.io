@@ -1,18 +1,22 @@
 const canvas = document.getElementById('constellation-bg');
 const ctx = canvas.getContext('2d');
 
-let width, height, stars, meteors;
+let width, height, stars, meteors, personalConstellation;
 const numStars = 200;
 const numMeteors = 5;
-const constellations = [
-    [{x: 0.2, y: 0.3}, {x: 0.3, y: 0.35}, {x: 0.4, y: 0.3}, {x: 0.5, y: 0.35}],
-    [{x: 0.7, y: 0.5}, {x: 0.75, y: 0.6}, {x: 0.8, y: 0.55}, {x: 0.85, y: 0.65}]
+
+// Personal touch: Add your initials or a meaningful symbol
+const personalConstellationPoints = [
+    {x: 0.2, y: 0.3}, {x: 0.3, y: 0.2},  // A
+    {x: 0.4, y: 0.3}, {x: 0.5, y: 0.2},  // K
+    {x: 0.5, y: 0.4}, {x: 0.4, y: 0.4}   // K
 ];
 
 function init() {
     resizeCanvas();
     createStars();
     createMeteors();
+    createPersonalConstellation();
     animate();
 }
 
@@ -113,11 +117,44 @@ function drawMeteors() {
         }
     });
 }
+function createPersonalConstellation() {
+    personalConstellation = personalConstellationPoints.map(point => ({
+        x: point.x * width,
+        y: point.y * height,
+        radius: 2,
+        alpha: 0,
+        speed: 0.005 + Math.random() * 0.005
+    }));
+}
+
+function drawPersonalConstellation() {
+    ctx.strokeStyle = 'rgba(255, 215, 0, 0.6)';  // Golden color
+    ctx.lineWidth = 1;
+    
+    ctx.beginPath();
+    personalConstellation.forEach((point, index) => {
+        if (index === 0) {
+            ctx.moveTo(point.x, point.y);
+        } else {
+            ctx.lineTo(point.x, point.y);
+        }
+        
+        // Draw larger, pulsating stars for constellation points
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, point.radius + Math.sin(Date.now() * 0.01) * 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 215, 0, ${point.alpha})`;
+        ctx.fill();
+        
+        point.alpha += point.speed;
+        if (point.alpha > 1 || point.alpha < 0) point.speed = -point.speed;
+    });
+    ctx.stroke();
+}
 
 function animate() {
     drawStars();
-    drawConstellations();
     drawMeteors();
+    drawPersonalConstellation();
     requestAnimationFrame(animate);
 }
 
