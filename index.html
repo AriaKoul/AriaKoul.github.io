@@ -151,9 +151,29 @@
                 height: 70vh;
             }
         }
+        
+        /* New styles for hyperlinks */
+        a {
+            color: #a0a0ff; /* Light blue color */
+            text-decoration: none; /* Removes underline */
+        }
+
+        a:hover {
+            color: #ffffff; /* White color on hover */
+            text-decoration: underline; /* Adds underline on hover */
+        }
+
+        .box a {
+            color: #ffcc00; /* Gold color for links inside boxes */
+        }
+
+        .box a:hover {
+            color: #ffffff; /* White color on hover */
+        }
     </style>
 </head>
 <body>
+    <!-- The rest of your HTML remains unchanged -->
     <canvas id="constellation-bg"></canvas>
     <div class="navbar">
         <a href="#home" onclick="showSection('home')">Home</a>
