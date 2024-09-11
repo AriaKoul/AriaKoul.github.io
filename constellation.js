@@ -1,43 +1,28 @@
 const canvas = document.getElementById('constellation-bg');
 const ctx = canvas.getContext('2d');
 
-let width, height, stars, akConstellation, bookConstellation;
+let width, height, stars, sagittariusConstellation, bigDipperConstellation;
 const numStars = 500;
 
-const akConstellationPoints = [
-    {x: 0.05, y: 0.3}, {x: 0.15, y: 0.1},  // A left
-    {x: 0.25, y: 0.3},                     // A right
-    {x: 0.1, y: 0.2}, {x: 0.2, y: 0.2},    // A crossbar
-    {x: 0.35, y: 0.1}, {x: 0.35, y: 0.3},  // K vertical
-    {x: 0.35, y: 0.2}, {x: 0.45, y: 0.1},  // K upper diagonal
-    {x: 0.35, y: 0.2}, {x: 0.45, y: 0.3}   // K lower diagonal
+const sagittariusPoints = [
+    {x: 0.10, y: 0.3}, {x: 0.12, y: 0.35}, {x: 0.15, y: 0.32}, // Top of teapot
+    {x: 0.18, y: 0.38}, {x: 0.22, y: 0.36}, {x: 0.25, y: 0.40}, // Handle and spout
+    {x: 0.20, y: 0.45}, {x: 0.15, y: 0.48}, {x: 0.10, y: 0.45}, // Bottom of teapot
+    {x: 0.05, y: 0.60}, {x: 0.15, y: 0.70}, // Bow and arrow
 ];
 
-const bookConstellationPoints = [
-    {x: 0.6, y: 0.2},   // Top left
-    {x: 0.9, y: 0.2},   // Top right
-    {x: 0.9, y: 0.8},   // Bottom right
-    {x: 0.6, y: 0.8},   // Bottom left
-    {x: 0.6, y: 0.2},   // Back to top left to close the shape
-    {x: 0.65, y: 0.2},  // Spine top
-    {x: 0.65, y: 0.8},  // Spine bottom
-    {x: 0.7, y: 0.3},   // Page line 1
-    {x: 0.85, y: 0.3},
-    {x: 0.7, y: 0.4},   // Page line 2
-    {x: 0.85, y: 0.4},
-    {x: 0.7, y: 0.5},   // Page line 3
-    {x: 0.85, y: 0.5},
-    {x: 0.7, y: 0.6},   // Page line 4
-    {x: 0.85, y: 0.6},
-    {x: 0.7, y: 0.7},   // Page line 5
-    {x: 0.85, y: 0.7}
+const bigDipperPoints = [
+    {x: 0.70, y: 0.20}, {x: 0.75, y: 0.25}, // Top of bowl
+    {x: 0.80, y: 0.30}, {x: 0.85, y: 0.35}, // Bottom of bowl
+    {x: 0.90, y: 0.30}, {x: 0.93, y: 0.20}, // Handle
+    {x: 0.95, y: 0.15} // End of handle
 ];
 
 function init() {
     resizeCanvas();
     createStars();
-    createAKConstellation();
-    createBookConstellation();
+    createSagittariusConstellation();
+    createBigDipperConstellation();
     animate();
 }
 
@@ -63,24 +48,24 @@ function createConstellation(points) {
     return points.map(point => ({
         x: point.x * width,
         y: point.y * height,
-        radius: 2.5,
+        radius: 3,
         alpha: 0.7,
         speed: 0.01 + Math.random() * 0.01
     }));
 }
 
-function createAKConstellation() {
-    akConstellation = createConstellation(akConstellationPoints);
+function createSagittariusConstellation() {
+    sagittariusConstellation = createConstellation(sagittariusPoints);
 }
 
-function createBookConstellation() {
-    bookConstellation = createConstellation(bookConstellationPoints);
+function createBigDipperConstellation() {
+    bigDipperConstellation = createConstellation(bigDipperPoints);
 }
 
 function drawStars() {
     ctx.clearRect(0, 0, width, height);
     const gradient = ctx.createLinearGradient(0, 0, 0, height);
-    gradient.addColorStop(0, "#050a1c");  // Even darker blue
+    gradient.addColorStop(0, "#050a1c");  // Dark blue
     gradient.addColorStop(1, "#1a2a4a");
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
@@ -112,28 +97,25 @@ function drawConstellation(constellation, color) {
         
         // Draw larger, pulsating stars for constellation points
         ctx.beginPath();
-        ctx.arc(point.x, point.y, point.radius + Math.sin(Date.now() * 0.005) * 1, 0, Math.PI * 2);
-        ctx.fillStyle = `${color.slice(0, -2)}${point.alpha})`;
+        ctx.arc(point.x, point.y, point.radius + Math.sin(Date.now() * 0.003) * 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = `${color.slice(0, -2)}${0.7 + Math.sin(Date.now() * 0.003) * 0.3})`;
         ctx.fill();
-        
-        point.alpha += point.speed;
-        if (point.alpha > 1 || point.alpha < 0.7) point.speed = -point.speed;
     });
     ctx.stroke();
 }
 
 function animate() {
     drawStars();
-    drawConstellation(akConstellation, 'rgba(255, 215, 0, 0.9)');  // Even brighter golden color for AK
-    drawConstellation(bookConstellation, 'rgba(135, 206, 250, 0.9)');  // Even brighter light blue for book
+    drawConstellation(sagittariusConstellation, 'rgba(255, 220, 100, 0.9)');  // Golden yellow for Sagittarius
+    drawConstellation(bigDipperConstellation, 'rgba(100, 220, 255, 0.9)');  // Light blue for Big Dipper
     requestAnimationFrame(animate);
 }
 
 window.addEventListener('resize', () => {
     resizeCanvas();
     createStars();
-    createAKConstellation();
-    createBookConstellation();
+    createSagittariusConstellation();
+    createBigDipperConstellation();
 });
 
 init();
