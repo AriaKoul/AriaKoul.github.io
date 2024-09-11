@@ -5,17 +5,19 @@ let width, height, stars, sagittariusConstellation, bigDipperConstellation;
 const numStars = 500;
 
 const sagittariusPoints = [
-    {x: 0.10, y: 0.3}, {x: 0.12, y: 0.35}, {x: 0.15, y: 0.32}, // Top of teapot
-    {x: 0.18, y: 0.38}, {x: 0.22, y: 0.36}, {x: 0.25, y: 0.40}, // Handle and spout
-    {x: 0.20, y: 0.45}, {x: 0.15, y: 0.48}, {x: 0.10, y: 0.45}, // Bottom of teapot
-    {x: 0.05, y: 0.60}, {x: 0.15, y: 0.70}, // Bow and arrow
+    {x: 0.15, y: 0.3}, {x: 0.18, y: 0.35}, // Bow
+    {x: 0.20, y: 0.4}, {x: 0.22, y: 0.45}, // Arrow
+    {x: 0.25, y: 0.5}, {x: 0.20, y: 0.55}, // Body
+    {x: 0.15, y: 0.6}, {x: 0.10, y: 0.55}, // Legs
+    {x: 0.05, y: 0.5}, {x: 0.10, y: 0.45}, // Head
+    {x: 0.15, y: 0.4} // Connect back to bow
 ];
 
 const bigDipperPoints = [
-    {x: 0.70, y: 0.20}, {x: 0.75, y: 0.25}, // Top of bowl
-    {x: 0.80, y: 0.30}, {x: 0.85, y: 0.35}, // Bottom of bowl
-    {x: 0.90, y: 0.30}, {x: 0.93, y: 0.20}, // Handle
-    {x: 0.95, y: 0.15} // End of handle
+    {x: 0.70, y: 0.2}, {x: 0.75, y: 0.25}, // Top of bowl
+    {x: 0.80, y: 0.3}, {x: 0.85, y: 0.25}, // Bottom of bowl
+    {x: 0.90, y: 0.3}, {x: 0.93, y: 0.35}, // Start of handle
+    {x: 0.95, y: 0.4} // End of handle
 ];
 
 function init() {
